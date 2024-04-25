@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const Device = require('../models/device');
 
 // All Authors Route
 router.get('/', (req, res) => {
-  res.render('authors/index');
+  res.render('devices/index');
 });
 
 // New Author Route
 router.get('/new', (req, res) => {
-  res.render('authors/new');
+  res.render('devices/new', { device: new Device() });
 });
 
 // Create Author Route
