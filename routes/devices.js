@@ -14,7 +14,21 @@ router.get('/new', (req, res) => {
 
 // Create Author Route
 router.post('/', (req, res) => {
-  res.send('Create');
+  const device = new Device({
+    name: req.body.name,
+
+  });
+  device.save((err, newDevice) => {
+    if (err) {
+      res.render('devices/new', {
+        device: device,
+        errorMessage: 'Error saving device',
+      })
+    } else {
+      // res.redirect(`devices/${newDevice.id}`)
+      res.redirect('devices')
+    }
+  });
 });
 
 module.exports = router;

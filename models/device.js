@@ -5,10 +5,10 @@ const deviceSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    description: {
-        type: String,
-        required: false,
-    }
+    // description: {
+    //     type: String,
+    //     required: false,
+    // }
 });
 
 module.exports = mongoose.model('Device', deviceSchema);
